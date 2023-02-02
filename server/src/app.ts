@@ -40,6 +40,8 @@ app.get("/login", (req: Request, res: Response) => {
 });
 
 app.get("/callback", (req: Request, res: Response) => {
+  console.log(REDIRECT_URI);
+  
   const { code, error, state } = req.query;
 
   if (error || state !== stateValue) {
