@@ -1,4 +1,4 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 
 import querystring from "querystring";
 import express from "express";
@@ -16,6 +16,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 
 const stateKey = "spotify_auth_state";
+const stateValue = crypto.randomBytes(8).toString("hex");
 
 app.get("/", (req: Request, res: Response) => {
   res.send(`Hello world!`);
@@ -23,8 +24,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get("/login", (req: Request, res: Response) => {
   // 16 characters / 8 bytes
-  const state = crypto.randomBytes(8).toString("hex");
-  res.cookie(stateKey, state);
+  res.cookie(stateKey, stateValue);
 
   const scope = "user-read-private user-read-email";
 
@@ -32,7 +32,7 @@ app.get("/login", (req: Request, res: Response) => {
     client_id: CLIENT_ID,
     response_type: "code",
     redirect_uri: REDIRECT_URI,
-    state: state,
+    state: stateValue,
     scope: scope,
   });
 
@@ -40,14 +40,18 @@ app.get("/login", (req: Request, res: Response) => {
 });
 
 app.get("/callback", (req: Request, res: Response) => {
-  const code = req.query.code as string;
+  const { code, error, state } = req.query;
+
+  if (error || state !== stateValue) {
+    res.status(403).send(error);
+  }
 
   axios({
     method: "POST",
     url: "https://accounts.spotify.com/api/token",
     data: querystring.stringify({
       grant_type: "authorization_code",
-      code: code,
+      code: code as string,
       redirect_uri: REDIRECT_URI,
     }),
     headers: {
@@ -82,7 +86,7 @@ app.get("/callback", (req: Request, res: Response) => {
     });
 });
 
-app.get("/refresh_token", (req, res) => {
+app.get("/refresh_token", (req: Request, res: Response) => {
   const { refresh_token } = req.query;
 
   axios({
