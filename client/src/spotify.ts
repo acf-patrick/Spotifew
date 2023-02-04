@@ -117,3 +117,7 @@ axios.defaults.headers["Content-Type"] = "application/json";
 export function getCurrentUserProfile() {
   return axios.get("/me");
 }
+
+export function getUserFollowing() {
+  return axios.get("/me/following?type=artist");
+}

@@ -26,7 +26,12 @@ app.get("/login", (req: Request, res: Response) => {
   // 16 characters / 8 bytes
   res.cookie(stateKey, stateValue);
 
-  const scope = "user-read-private user-read-email";
+  const scopes = [
+    "user-read-private",
+    "user-read-email",
+    "user-follow-read"
+  ];
+  const scope = scopes.join(' ');
 
   const queryParams = querystring.stringify({
     client_id: CLIENT_ID,
