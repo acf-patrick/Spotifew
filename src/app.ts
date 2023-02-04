@@ -40,13 +40,10 @@ app.get("/login", (req: Request, res: Response) => {
 });
 
 app.get("/callback", (req: Request, res: Response) => {
-  console.log(REDIRECT_URI);
-  
   const { code, error, state } = req.query;
 
-  if (error || state !== stateValue) {
+  if (error || state !== stateValue)
     res.status(403).send(error);
-  }
 
   axios({
     method: "POST",
@@ -65,11 +62,12 @@ app.get("/callback", (req: Request, res: Response) => {
   })
     .then((response) => {
       if (response.status === 200) {
-        const { access_token, refresh_token } = response.data;
+        const { access_token, refresh_token, expires_in } = response.data;
 
         const queryParams = querystring.stringify({
           access_token,
           refresh_token,
+          expires_in
         });
         res.redirect(`http://localhost:3000/?${queryParams}`);
       } else {
