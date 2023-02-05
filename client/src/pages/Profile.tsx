@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { getUserProfile, getUserPlaylists } from "../spotify";
+import {
+  getUserProfile,
+  getUserPlaylists,
+  getUserTopArtists,
+} from "../spotify";
 import { catchErrors } from "../utils";
 import StyledHeader from "../styles/header";
 
 function Profile() {
   const [profile, setProfile] = useState<any>(null);
   const [playlists, setPlaylists] = useState<any>(null);
+  const [topArtists, setTopArtists] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +19,10 @@ function Profile() {
 
       const userPlaylists = await getUserPlaylists();
       setPlaylists(userPlaylists);
+
+      const userTopArtists = await getUserTopArtists();
+      setTopArtists(userTopArtists);
+      console.log(userTopArtists);
     };
 
     catchErrors(fetchData());
@@ -34,10 +43,12 @@ function Profile() {
                 {profile.followers.total} Follower
                 {profile.followers.total > 1 ? "s" : ""}
               </span>
-              <span>
-                {playlists.total} Playlist
-                {playlists.total > 1 ? "s" : ""}
-              </span>
+              {playlists && (
+                <span>
+                  {playlists.total} Playlist
+                  {playlists.total > 1 ? "s" : ""}
+                </span>
+              )}
               <span>{profile.following} Following</span>
             </p>
           </div>

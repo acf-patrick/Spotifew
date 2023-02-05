@@ -29,7 +29,8 @@ app.get("/login", (req: Request, res: Response) => {
   const scopes = [
     "user-read-private",
     "user-read-email",
-    "user-follow-read"
+    "user-follow-read",
+    "user-top-read"
   ];
   const scope = scopes.join(' ');
 
