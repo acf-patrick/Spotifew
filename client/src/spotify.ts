@@ -110,14 +110,25 @@ export const accessToken = getAccessToken();
 
 // Setting Axios configurations for future requests
 axios.defaults.baseURL = "https://api.spotify.com/v1";
-axios.defaults.headers["Authorization"] = `Bearer ${accessToken}`
+axios.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
 axios.defaults.headers["Content-Type"] = "application/json";
 
-// Get current User's profile
-export function getCurrentUserProfile() {
-  return axios.get("/me");
+/**
+ * Get current User's profile
+ * - Name
+ * - Followers
+ * - Artists followed
+ */
+export async function getUserProfile() {
+  const { data } = await axios.get("/me");
+
+  let result = await axios.get("/me/following?type=artist");
+  data.following = result.data.artists.items.length;
+
+  return data;
 }
 
-export function getUserFollowing() {
-  return axios.get("/me/following?type=artist");
+export async function getUserPlaylists(limit = 20) {
+  const { data } = await axios.get(`/me/playlists?limit=${limit}`);
+  return data;
 }
