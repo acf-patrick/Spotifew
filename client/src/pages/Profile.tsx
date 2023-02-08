@@ -5,7 +5,7 @@ import {
   getUserTopArtists,
 } from "../spotify";
 import { catchErrors } from "../utils";
-import StyledHeader from "../styles/header";
+import { StyledHeader } from "../styles";
 
 function Profile() {
   const [profile, setProfile] = useState<any>(null);

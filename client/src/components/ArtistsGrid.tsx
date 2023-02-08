@@ -1,0 +1,27 @@
+import { StyledGrid } from "../styles";
+
+function ArtistsGrid({ artists }: { artists: any[] }) {
+  return (
+    <>
+      {artists && artists.length ? (
+        <StyledGrid type="artist">
+          {artists.map((artist, index) => (
+            <li key={index}>
+              {artist.images[0] && (
+                <div>
+                  <img src={artist.image[0].url} alt={artist.name} />
+                </div>
+              )}
+              <h3>{artist.name}</h3>
+              <p>Artist</p>
+            </li>
+          ))}
+        </StyledGrid>
+      ) : (
+        <p>No artists available</p>
+      )}
+    </>
+  );
+}
+
+export default ArtistsGrid;

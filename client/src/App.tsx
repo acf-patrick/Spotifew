@@ -7,7 +7,7 @@ import {
   StyledContainer,
   StyledLogoutButton,
   GlobalStyles,
-} from "./styles/styles";
+} from "./styles";
 import { theme } from "./styles/theme";
 import { ThemeProvider } from "styled-components";
 
