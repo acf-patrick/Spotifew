@@ -74,6 +74,11 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
     max-width: 100%;
     vertical-align: middle;
   }
+
+  main {
+    position: relative;
+    padding: ${({ theme }) => theme.spacings.xxl} 0;
+  }
 `;
 
 export const StyledContainer = styled.div`

@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
 const StyledGrid = styled.ul<{ type?: string }>`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: ${({ theme }) => theme.spacings.sm};
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: ${({ theme }) => theme.spacings.lg};
+  }
+
   li {
     background-color: ${({ theme }) => theme.colors.nearBlack};
     border-radius: ${({ theme }) => theme.borderRadius.subtle};

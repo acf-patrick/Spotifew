@@ -23,7 +23,6 @@ function Profile() {
 
       const userTopArtists = await getUserTopArtists();
       setTopArtists(userTopArtists);
-      console.log(userTopArtists);
     };
 
     catchErrors(fetchData());

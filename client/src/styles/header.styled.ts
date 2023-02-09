@@ -7,8 +7,8 @@ const StyledHeader = styled.header<{ type?: string }>`
   background-color: ${({ theme }) => theme.colors.grey};
   height: 30vh;
   max-height: 500px;
-
   min-height: 250px;
+
   @media (min-width: 768px) {
     min-height: 340px;
   }
@@ -18,10 +18,10 @@ const StyledHeader = styled.header<{ type?: string }>`
     display: block;
     width: 100%;
     height: 20vh;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.6, ${({ theme }) => theme.colors.black})
-    );
     background-color: ${({ theme }) => theme.colors.grey};
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.6), ${({ theme }) => theme.colors.black}
+    );
     position: absolute;
     top: 100%;
     z-index: -1;

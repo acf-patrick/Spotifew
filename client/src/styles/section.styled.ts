@@ -39,7 +39,6 @@ const StyledSection = styled.section`
   }
 
   .inner {
-    width: 100%;
     max-width: ${({ theme }) => theme.maxWidth};
     margin: 0 auto;
     position: relative;
@@ -55,7 +54,7 @@ const StyledSection = styled.section`
     align-items: flex-end;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.lightGrey};
-    font-size: ${({ theme }) => theme.fontSizes.xxl};
+    font-size: ${({ theme }) => theme.fontSizes.xxs};
     font-weight: 700;
     letter-spacing: 0.1rem;
     padding-bottom: 2px;
