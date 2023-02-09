@@ -9,7 +9,7 @@ function ArtistsGrid({ artists }: { artists: any[] }) {
             <li key={index}>
               {artist.images[0] && (
                 <div>
-                  <img src={artist.image[0].url} alt={artist.name} />
+                  <img src={artist.images[0].url} alt={artist.name} />
                 </div>
               )}
               <h3>{artist.name}</h3>

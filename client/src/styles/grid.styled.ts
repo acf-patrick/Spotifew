@@ -17,7 +17,7 @@ const StyledGrid = styled.ul<{ type?: string }>`
     }
 
     & > div {
-      padding: ${({ theme }) => theme.spacing.sm};
+      padding: ${({ theme }) => theme.spacings.sm};
 
       div {
         position: relative;
