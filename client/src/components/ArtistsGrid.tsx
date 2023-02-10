@@ -10,7 +10,9 @@ function ArtistsGrid({ artists }: { artists: any[] }) {
               <div>
                 {artist.images[0] && (
                   <div>
-                    <img src={artist.images[0].url} alt={artist.name} />
+                    <a href={artist.external_urls.spotify} target="_blank">
+                      <img src={artist.images[0].url} alt={artist.name} />
+                    </a>
                   </div>
                 )}
                 <h3>{artist.name}</h3>

@@ -56,6 +56,8 @@ const StyledGrid = styled.ul<{ type?: string }>`
       margin: 0 0 ${({ theme }) => theme.spacings.xxs};
       font-size: ${({ theme }) => theme.fontSizes.md};
       letter-spacing: normal;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     p {

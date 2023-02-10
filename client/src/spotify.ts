@@ -128,6 +128,10 @@ export async function getUserProfile() {
   return data;
 }
 
+/**
+ * Retrieve user's playlists
+ * @param limit Limit number of playlist to request
+ */
 export async function getUserPlaylists(limit = 20) {
   const { data } = await axios.get(`/me/playlists?limit=${limit}`);
   return data;
@@ -144,5 +148,19 @@ export async function getUserPlaylists(limit = 20) {
  */
 export async function getUserTopArtists(time_range = "short_term") {
   const { data } = await axios.get(`/me/top/artists?time_range=${time_range}`);
+  return data;
+}
+
+/**
+ * Retrieve user's top track list
+ * 
+ * Parameter values :
+ * - short_term (default)
+ * - medium_term
+ * - long_term
+ * @param time_range Over what time frame the affinities are computed.
+ */
+export async function getUserTopTracks(time_range = "short_term") {
+  const { data } = await axios.get(`/me/top/tracks?time_range=${time_range}`);
   return data;
 }
