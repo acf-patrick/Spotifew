@@ -10,16 +10,17 @@ const StyledTrackList = styled.ul`
     align-items: center;
     grid-template-columns: 20px 1fr;
     grid-gap: ${({ theme }) => theme.spacings.md};
-    padding: ${({ theme }) => theme.spacings.xs};
+    padding: ${({ theme }) => theme.spacings.sm};
     color: ${({ theme }) => theme.colors.grey};
     font-size: ${({ theme }) => theme.fontSizes.sm};
     border-radius: ${({ theme }) => theme.borderRadius.subtle};
-    transition: background-color 300ms ease;
+    transition: background-color 300ms linear;
     cursor: default;
+    margin: 1rem;
 
     &:hover,
     &:focus {
-      background-color: ${({ theme }) => theme.darkGrey};
+      background-color: ${({ theme }) => theme.colors.darkGrey};
     }
 
     .num {
@@ -47,6 +48,10 @@ const StyledTrackList = styled.ul`
     .name {
       color: ${({ theme }) => theme.colors.white};
       font-size: ${({ theme }) => theme.fontSizes.md};
+
+      a:hover {
+        text-decoration: none;
+      }
     }
 
     .album {
@@ -69,7 +74,7 @@ const StyledTrackList = styled.ul`
     }
 
     @media (min-width: 768px) {
-      grid-template-columns: 20px 4fr 2fr minmax(60p, 1fr);
+      grid-template-columns: 20px 4fr 2fr minmax(60px, 1fr);
       padding: ${({ theme }) => `${theme.spacings.xxs} ${theme.spacings.sm}`};
     }
   }

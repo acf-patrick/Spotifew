@@ -94,6 +94,12 @@ const StyledHeader = styled.header<{ type?: string }>`
           font-size: 8px;
         }
       }
+
+      @media (max-width: 414px) {
+        * {
+          font-size: 0.65rem;
+        }
+      }
     }
   }
 `;

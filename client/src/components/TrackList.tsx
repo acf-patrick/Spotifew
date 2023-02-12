@@ -16,7 +16,11 @@ function TrackList({ tracks }: { tracks: any[] }) {
                   </div>
                 )}
                 <div className="name-artist">
-                  <div className="name">{track.name}</div>
+                  <div className="name">
+                    <a href={track.external_urls.spotify} target="_blank">
+                      {track.name}
+                    </a>
+                  </div>
                   <div className="artist">
                     {track.artists.map((artist: any, index: number) => (
                       <span key={index}>

@@ -7,16 +7,20 @@ function ArtistsGrid({ artists }: { artists: any[] }) {
         <StyledGrid type="artist">
           {artists.map((artist, index) => (
             <li key={index}>
-              <div>
+              <div className="inner">
                 {artist.images[0] && (
                   <div>
-                    <a href={artist.external_urls.spotify} target="_blank">
+                    <a
+                      className="image"
+                      href={artist.external_urls.spotify}
+                      target="_blank"
+                    >
                       <img src={artist.images[0].url} alt={artist.name} />
                     </a>
                   </div>
                 )}
-                <h3>{artist.name}</h3>
-                <p>Artist</p>
+                <h3 className="name">{artist.name}</h3>
+                <p className="label">Artist</p>
               </div>
             </li>
           ))}

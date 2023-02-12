@@ -1,7 +1,19 @@
 import { StyledSection } from "../styles";
 import { Link } from "react-router-dom";
 
-function SectionWrapper({ children, title, seeAllLink, breadcrumb }: any) {
+interface ISectionWrapperProps {
+  children: any;
+  title?: string;
+  seeAllLink?: string;
+  breadcrumb?: string;
+}
+
+function SectionWrapper({
+  children,
+  title,
+  seeAllLink,
+  breadcrumb,
+}: ISectionWrapperProps) {
   return (
     <StyledSection>
       <div className="inner">
