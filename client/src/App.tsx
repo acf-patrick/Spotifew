@@ -3,15 +3,11 @@ import { accessToken, logout } from "./spotify";
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import {
-  StyledContainer,
-  StyledLogoutButton,
-  GlobalStyles,
-} from "./styles";
+import { StyledContainer, StyledLogoutButton, GlobalStyles } from "./styles";
 import { theme } from "./styles/theme";
 import { ThemeProvider } from "styled-components";
 
-import { Profile, Login } from "./pages";
+import { Profile, Login, NotFound } from "./pages";
 
 // This component will scroll the window up on every navigation
 function ScrollToTop() {
@@ -44,6 +40,7 @@ function App() {
               <Route path="/top-tracks" element={<h1>Top Tracks</h1>} />
               <Route path="/playlists" element={<h1>Playlists</h1>} />
               <Route path="/playlists/:id" element={<h1>Playlist</h1>} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </>
         ) : (
