@@ -164,3 +164,13 @@ export async function getUserTopTracks(time_range = "short_term") {
   const { data } = await axios.get(`/me/top/tracks?time_range=${time_range}`);
   return data;
 }
+
+/**
+ * Retrive playlist total follower count
+ * 
+ * @param id ID of the playlist to look for
+ */
+export async function getPlaylistFollowersCount(id: string) {
+  const { data } = await axios.get(`/playlists/${id}`);
+  return data.followers.total;
+}
