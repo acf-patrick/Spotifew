@@ -17,29 +17,31 @@ function SectionWrapper({
   return (
     <StyledSection>
       <div className="inner">
-        <div className="top">
-          <h2 className="heading">
-            {breadcrumb && (
-              <span className="breadcrumb">
-                <Link to="/">Profile</Link>
-              </span>
+        {(breadcrumb || title || seeAllLink) && (
+          <div className="top">
+            <h2 className="heading">
+              {breadcrumb && (
+                <span className="breadcrumb">
+                  <Link to="/">Profile</Link>
+                </span>
+              )}
+              {title && (
+                <>
+                  {seeAllLink ? (
+                    <Link to={seeAllLink}>{title}</Link>
+                  ) : (
+                    <span>{title}</span>
+                  )}
+                </>
+              )}
+            </h2>
+            {seeAllLink && (
+              <Link to={seeAllLink} className="see-all">
+                See All
+              </Link>
             )}
-            {title && (
-              <>
-                {seeAllLink ? (
-                  <Link to={seeAllLink}>{title}</Link>
-                ) : (
-                  <span>{title}</span>
-                )}
-              </>
-            )}
-          </h2>
-          {seeAllLink && (
-            <Link to={seeAllLink} className="see-all">
-              See All
-            </Link>
-          )}
-        </div>
+          </div>
+        )}
 
         {children}
       </div>

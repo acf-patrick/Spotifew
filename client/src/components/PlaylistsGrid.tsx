@@ -13,7 +13,7 @@ function PlaylistsGrid({ playlists }: { playlists: any[] }) {
         console.log(followers)
       });
     }
-  }, []);
+  }, [playlists]);
 
   return (
     <>

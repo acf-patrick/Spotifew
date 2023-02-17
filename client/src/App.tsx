@@ -7,7 +7,7 @@ import { StyledContainer, StyledLogoutButton, GlobalStyles } from "./styles";
 import { theme } from "./styles/theme";
 import { ThemeProvider } from "styled-components";
 
-import { Profile, Login, NotFound } from "./pages";
+import { Profile, Login, NotFound, TopArtists } from "./pages";
 
 // This component will scroll the window up on every navigation
 function ScrollToTop() {
@@ -36,7 +36,7 @@ function App() {
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Profile />} />
-              <Route path="/top-artists" element={<h1>Top Artists</h1>} />
+              <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-tracks" element={<h1>Top Tracks</h1>} />
               <Route path="/playlists" element={<h1>Playlists</h1>} />
               <Route path="/playlists/:id" element={<h1>Playlist</h1>} />
