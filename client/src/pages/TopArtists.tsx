@@ -16,11 +16,11 @@ function TopArtists() {
     };
 
     catchErrors(fetchData());
-  }, []);
+  }, [activeRange]);
 
   return (
     <main>
-      <SectionWrapper>
+      <SectionWrapper title="Top Artists" breadcrumb={true}>
         <TimeRangeButtons
           activeRange={activeRange}
           setActiveRange={setActiveRange}

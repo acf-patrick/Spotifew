@@ -5,7 +5,7 @@ interface ISectionWrapperProps {
   children: any;
   title?: string;
   seeAllLink?: string;
-  breadcrumb?: string;
+  breadcrumb?: boolean;
 }
 
 function SectionWrapper({
