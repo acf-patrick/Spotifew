@@ -9,10 +9,10 @@ function PlaylistsGrid({ playlists }: { playlists: any[] }) {
     for (const playlist of playlists) {
       getPlaylistFollowersCount(playlist.id).then((count) => {
         followers[playlist.id] = count;
-        setFollowers(followers);
+        setFollowers({...followers});
       });
     }
-  }, [playlists]);
+  }, []);
 
   return (
     <>
