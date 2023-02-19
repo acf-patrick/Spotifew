@@ -12,6 +12,7 @@ import {
   Login,
   NotFound,
   TopTracks,
+  Playlist,
   Playlists,
   TopArtists,
 } from "./pages";
@@ -46,7 +47,7 @@ function App() {
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-tracks" element={<TopTracks />} />
               <Route path="/playlists" element={<Playlists />} />
-              <Route path="/playlists/:id" element={<h1>Playlist</h1>} />
+              <Route path="/playlists/:id" element={<Playlist />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </>

@@ -45,7 +45,7 @@ export function logout() {
 /**
  * Use of /refresh_token endpoint to retrieve a new token for the app
  */
-async function refreshToken(): Promise<void> {
+async function refreshToken() {
   try {
     if (
       !VALUES.refreshToken ||
@@ -139,7 +139,7 @@ export async function getUserPlaylists(limit = 20) {
 
 /**
  * Retrieve user's top artists list
- * 
+ *
  * Parameter values :
  * - short_term (default)
  * - medium_term
@@ -147,13 +147,13 @@ export async function getUserPlaylists(limit = 20) {
  * @param time_range Over what time frame the affinities are computed.
  */
 export async function getUserTopArtists(time_range = "short_term") {
-  const { data } = await axios.get(`/me/top/artists?time_range=${time_range}`);
+  const { data } = await axios.get(`/me/top/artists?time_range=${time_range}&limit=50`);
   return data;
 }
 
 /**
  * Retrieve user's top track list
- * 
+ *
  * Parameter values :
  * - short_term (default)
  * - medium_term
@@ -161,16 +161,35 @@ export async function getUserTopArtists(time_range = "short_term") {
  * @param time_range Over what time frame the affinities are computed.
  */
 export async function getUserTopTracks(time_range = "short_term") {
-  const { data } = await axios.get(`/me/top/tracks?time_range=${time_range}`);
+  const { data } = await axios.get(`/me/top/tracks?time_range=${time_range}&limit=50`);
   return data;
 }
 
 /**
  * Retrive playlist total follower count
- * 
+ *
  * @param id ID of the playlist to look for
  */
 export async function getPlaylistFollowersCount(id: string) {
   const { data } = await axios.get(`/playlists/${id}`);
   return data.followers.total;
+}
+
+/**
+ * Retrive playlist by its ID
+ *
+ * @param playlist_id ID of the playlist
+ */
+export async function getPlaylist(playlist_id: string) {
+  const { data } = await axios.get(`/playlists/${playlist_id}`);
+  return data;
+}
+
+/**
+ * Retrieve audio features (danceability, loudness, energy, ...)
+ * @param ids Comma separated list of tracks IDs
+ */
+export async function getAudioFeatures(ids: string) {
+  const { data } = await axios.get(`/audio-features?ids=${ids}`);
+  return data;
 }

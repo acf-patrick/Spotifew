@@ -11,7 +11,7 @@ function TopTracks() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const userTopTracks= await getUserTopTracks(`${activeRange}_term`);
+      const userTopTracks = await getUserTopTracks(`${activeRange}_term`);
       setTopTracks(userTopTracks);
     };
 
@@ -20,7 +20,7 @@ function TopTracks() {
 
   return (
     <main>
-      <SectionWrapper title="Top Tracks" breadcrumb={true}>
+      <SectionWrapper title="Top Tracks" breadcrumb>
         <TimeRangeButtons
           activeRange={activeRange}
           setActiveRange={setActiveRange}

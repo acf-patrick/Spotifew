@@ -1,6 +1,7 @@
 import { StyledGrid } from "../styles";
 import { useEffect, useState } from "react";
 import { getPlaylistFollowersCount } from "../spotify";
+import { Link } from "react-router-dom";
 
 function PlaylistsGrid({ playlists }: { playlists: any[] }) {
   const [followers, setFollowers] = useState<any>({});
@@ -9,7 +10,7 @@ function PlaylistsGrid({ playlists }: { playlists: any[] }) {
     for (const playlist of playlists) {
       getPlaylistFollowersCount(playlist.id).then((count) => {
         followers[playlist.id] = count;
-        setFollowers({...followers});
+        setFollowers({ ...followers });
       });
     }
   }, []);
@@ -20,10 +21,9 @@ function PlaylistsGrid({ playlists }: { playlists: any[] }) {
         <StyledGrid>
           {playlists.map((playlist, index) => (
             <li key={index}>
-              <a
+              <Link
                 className="inner"
-                target="_blank"
-                href={playlist.external_urls.spotify}
+                to={`/playlists/${playlist.id}`}
               >
                 {playlist.images.length && playlist.images[0] && (
                   <div className="image">
@@ -36,7 +36,7 @@ function PlaylistsGrid({ playlists }: { playlists: any[] }) {
                     ? followers[playlist.id].toLocaleString("en") + " likes"
                     : "Playlist"}
                 </p>
-              </a>
+              </Link>
             </li>
           ))}
         </StyledGrid>

@@ -40,7 +40,7 @@ function Playlists() {
 
   return (
     <main>
-      <SectionWrapper title="Public Playlists" breadcrumb={true}>
+      <SectionWrapper title="Public Playlists" breadcrumb>
         {playlists && <PlaylistsGrid playlists={playlists} />}
       </SectionWrapper>
     </main>

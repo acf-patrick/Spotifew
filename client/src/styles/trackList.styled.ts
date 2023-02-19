@@ -27,7 +27,7 @@ const StyledTrackList = styled.ul`
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      font-size: ${({ theme }) => theme.fontSizes.md};
+      font-size: ${({ theme }) => theme.fontSizes.sm};
       font-variant-numeric: tabular-nums;
       overflow: visible;
     }
@@ -59,7 +59,6 @@ const StyledTrackList = styled.ul`
 
       @media (min-width: 768px) {
         display: block;
-        white-space: nowrap;
       }
     }
 

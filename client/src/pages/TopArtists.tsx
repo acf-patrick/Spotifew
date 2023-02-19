@@ -20,7 +20,7 @@ function TopArtists() {
 
   return (
     <main>
-      <SectionWrapper title="Top Artists" breadcrumb={true}>
+      <SectionWrapper title="Top Artists" breadcrumb>
         <TimeRangeButtons
           activeRange={activeRange}
           setActiveRange={setActiveRange}

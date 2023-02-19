@@ -4,4 +4,5 @@ export { default as StyledSection } from "./section.styled";
 export { default as StyledTrackList } from "./trackList.styled";
 export { default as StyledNotFoundContainer } from "./notFound.styled";
 export { default as StyledRangeButtons } from "./rangeButtons.styled";
+export { default as StyledDropdown } from "./dropdown.styled";
 export { GlobalStyles, StyledContainer, StyledLogoutButton } from "./styles";
