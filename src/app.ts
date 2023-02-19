@@ -9,11 +9,10 @@ import axios from "axios";
 dotenv.config();
 const app = express();
 
-const PORT = 8000;
-
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
+const PORT = process.env.PORT || 8000;
 
 const stateKey = "spotify_auth_state";
 const stateValue = crypto.randomBytes(8).toString("hex");

@@ -37,13 +37,18 @@ const StyledLoginContainer = styled.main`
   }
 `;
 
+const LONGIN_URI =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:8000/login"
+    : "https://spotifew.onrender.com/login";
+
 export default function Login() {
   return (
     <StyledLoginContainer>
       <div>
         <img src="/images/Spotify_logo_without_text.svg" alt="spotify" />
       </div>
-      <StyledLoginButton href="http://localhost:8000/login">
+      <StyledLoginButton href={LONGIN_URI}>
         Log in to Spotify
       </StyledLoginButton>
     </StyledLoginContainer>

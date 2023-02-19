@@ -10,6 +10,7 @@
     "client": "cd client && yarn dev",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "build": "tsc",
+    "start": "node bin/app.js",
     "buildClient": "cd client && yarn build"
   },
   "dependencies": {
