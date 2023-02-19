@@ -10,7 +10,8 @@
     "server": "nodemon ./src/app.ts",
     "client": "cd client && yarn dev",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "build": "tsc"
+    "build": "tsc",
+    "buildClient": "cd client && yarn build"
   },
   "dependencies": {
     "@types/express": "^4.17.16",
