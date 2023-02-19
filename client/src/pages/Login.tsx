@@ -40,7 +40,7 @@ const StyledLoginContainer = styled.main`
 const LONGIN_URI =
   process.env.NODE_ENV !== "production"
     ? "http://localhost:8000/login"
-    : "https://spotifew.onrender.com/login";
+    : "https://spotifew.cyclic.com/login";
 
 export default function Login() {
   return (
