@@ -1,6 +1,5 @@
 import axios from "axios";
-import { SectionWrapper } from "../components";
-import { PlaylistsGrid } from "../components";
+import { PlaylistsGrid, Loader, SectionWrapper } from "../components";
 import { useState, useEffect } from "react";
 import { getUserPlaylists } from "../spotify";
 import { catchErrors } from "../utils";
@@ -29,7 +28,7 @@ function Playlists() {
         const { data } = await axios.get(playlistsData.next);
         setPlaylistsData(data);
         setPlaylists((playlists: any[]) => [
-          ...playlists ? playlists : [],
+          ...(playlists ? playlists : []),
           ...playlistsData.items,
         ]);
       }
@@ -41,7 +40,7 @@ function Playlists() {
   return (
     <main>
       <SectionWrapper title="Public Playlists" breadcrumb>
-        {playlists && <PlaylistsGrid playlists={playlists} />}
+        {playlists ? <PlaylistsGrid playlists={playlists} /> : <Loader />}
       </SectionWrapper>
     </main>
   );

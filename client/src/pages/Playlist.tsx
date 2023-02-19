@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { getAudioFeatures, getPlaylist } from "../spotify";
 import { catchErrors } from "../utils";
 import { StyledHeader, StyledDropdown } from "../styles";
-import { SectionWrapper, TrackList } from "../components";
+import { Loader, SectionWrapper, TrackList } from "../components";
 
 function Playlist() {
   const { id } = useParams();
@@ -93,7 +93,7 @@ function Playlist() {
 
   return (
     <>
-      {playlist && (
+      {playlist ? (
         <>
           <StyledHeader>
             <div className="inner">
@@ -140,10 +140,12 @@ function Playlist() {
                   ))}
                 </select>
               </StyledDropdown>
-              {tracks && <TrackList tracks={sortedTracks!} />}
+              {sortedTracks ? <TrackList tracks={sortedTracks!} /> : <Loader />}
             </SectionWrapper>
           </main>
         </>
+      ) : (
+        <Loader />
       )}
     </>
   );
