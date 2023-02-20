@@ -3,12 +3,12 @@ import styled, { createGlobalStyle, css } from "styled-components";
 const fonts = css`
   @font-face {
     font-family: GTWalsheim;
-    src: url("/fonts/GTWalsheimPro-Regular.ttf");
+    src: url("/Spotifew/fonts/GTWalsheimPro-Regular.ttf");
   }
 
   @font-face {
     font-family: Poppins;
-    src: url("/fonts/Poppins-Regular.ttf");
+    src: url("/Spotifew/fonts/Poppins-Regular.ttf");
   }
 `;
 
