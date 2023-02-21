@@ -5,7 +5,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ command, mode }) => {
   return {
     plugins: [react()],
-    base: "/Spotifew",
     server: {
       host: true,
       port: 3000,
