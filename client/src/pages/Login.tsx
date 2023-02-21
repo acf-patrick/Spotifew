@@ -46,7 +46,7 @@ export default function Login() {
   return (
     <StyledLoginContainer>
       <div>
-        <img src="/Spotifew/images/Spotify_logo_without_text.svg" alt="spotify" />
+        <img src="/images/Spotify_logo_without_text.svg" alt="spotify" />
       </div>
       <StyledLoginButton href={LONGIN_URI}>
         Log in to Spotify

@@ -8,7 +8,7 @@ function NotFound() {
     <StyledNotFoundContainer>
       <div className="inner">
         <div className="logo">
-          <img src="/Spotifew/images/Spotify_logo_without_text.svg" alt="spotify-svg" />
+          <img src="/images/Spotify_logo_without_text.svg" alt="spotify-svg" />
         </div>
         <h1>Page not found</h1>
         <p>We can't seem to find the page you are looking for.</p>
